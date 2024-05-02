@@ -20,4 +20,4 @@ npm 8.19.2
 Alan
 
 ## LICENSE
-[MIT License](https://github.com/joanbabyfet/life/blob/master/LICENSE)
+[MIT License](https://github.com/joanbabyfet/electron_life/blob/master/LICENSE)
