@@ -4,7 +4,7 @@ const { app, BrowserWindow } = require('electron')
 //引入配置
 require('dotenv').config()
 
-const is_dev = process.env.IS_DEV === "true" //当前环境
+const env = process.env.NODE_ENV //当前环境
 //屏蔽安全告警
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true'
 //忽略ssl证书检测
@@ -14,18 +14,23 @@ app.on('ready', () => {
   //创建一个窗口
   const mainWindow = new BrowserWindow({
     fullscreen: true,
+    //width: 600,
+    //height: 400,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true, //设置该窗口js能访问node环境
+      contextIsolation: false, //设置false后才可在渲染进程中使用electron api
     },
   })
   //窗口加载html文件
   //mainWindow.loadFile('index.html')
   mainWindow.loadURL(
-    is_dev ? 'http://localhost:3002' : 
+    env == "development" ? 'http://localhost:3002' : 
     `file://${path.join(__dirname, '../dist/index.html')}`
   )
-  if (is_dev) {
+  if (env == "development") {
     mainWindow.webContents.openDevTools()
+  } else {
+    mainWindow.removeMenu()
   }
 })
