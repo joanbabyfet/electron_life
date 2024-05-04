@@ -13,9 +13,9 @@ app.commandLine.appendSwitch('ignore-certificate-errors')
 app.on('ready', () => {
   //创建一个窗口
   const mainWindow = new BrowserWindow({
-    fullscreen: true,
-    //width: 600,
-    //height: 400,
+    //fullscreen: true,
+    width: 600,
+    height: 400,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true, //设置该窗口js能访问node环境
