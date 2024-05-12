@@ -9,7 +9,7 @@
 ## Usage
 ```
 # 执行
-npm install --save-dev electron
+npm install
 npm start
 ```
 
