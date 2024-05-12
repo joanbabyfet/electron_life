@@ -34,7 +34,7 @@
     "linux": {
       "icon": "icons/Mushroom.png",
       "category":"Network",
-      "target": ["rpm", "AppImage"]
+      "target": ["AppImage"]
     }
   }
 }
