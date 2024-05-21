@@ -24,7 +24,7 @@ app.on('ready', () => {
   })
   //窗口加载html文件
   //mainWindow.loadFile('index.html')
-  mainWindow.loadURL('http://localhost:3002')
+  mainWindow.loadURL(process.env.APP_URL)
   if (is_dev) {
     mainWindow.webContents.openDevTools()
   } else {
